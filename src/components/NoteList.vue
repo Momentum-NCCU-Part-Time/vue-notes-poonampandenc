@@ -10,6 +10,10 @@ fetch("http://localhost:3000/notes/", {
 })
   .then((res) => res.json())
   .then((data) => (notes.value = data));
+
+const addNoteToList = (note) => {
+  notes.value = [...notes.value.note];
+};
 </script>
 
 <template>

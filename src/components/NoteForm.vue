@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
-import NoteList from "./NoteList.vue";
 const newNoteTitle = ref("");
 const newNoteBody = ref("");
 
 const createNote = () => {
+  if (!newNoteTitle) return;
   fetch("http://localhost:3000/notes/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -26,7 +26,7 @@ const resetNote = () => {
 
 <template>
   <div>
-    <form @submit.prevent="createNote">
+    <form id="NoteForm" @submit.prevent="createNote">
       <h2>New Note</h2>
       <div class="title">
         <input
@@ -43,7 +43,7 @@ const resetNote = () => {
           placeholder="New Note Body"
         />
       </div>
-      <button type="submit">Save</button>
+      <button type="submit" :disabled="!newNoteTitle">Add Note</button>
     </form>
   </div>
 </template>
