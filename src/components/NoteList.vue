@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import NoteForm from "./NoteForm.vue";
-import NoteItem from './NoteItem.vue';
 
 const notes = ref([]);
 
@@ -19,6 +18,12 @@ const addNoteToList = (note) => {
   <NoteForm @noteCreated="addNoteToList" />
   <div class="listOfNotes">
     <h2>All Notes</h2>
-      <NoteItem v-for="note in notes" :key="note.id" :note="note"/>
+      <ul>
+      <li v-for="note in notes" :key="note.id">
+        {{ note.title }}
+        <br />
+        {{ note.body }}
+      </li>
+    </ul>
   </div>
 </template>

@@ -20,7 +20,6 @@ const createNote = () => {
     })
   }).then((res) => res.json())
     .then((note) => {
-      console.log("hitting .then")
       emit("noteCreated", note)
       resetNote()
     });
