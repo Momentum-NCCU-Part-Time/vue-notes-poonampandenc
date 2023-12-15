@@ -6,30 +6,24 @@ const notes = ref([]);
 fetch("http://localhost:3000/notes/", {
   method: "GET",
   headers: { "Content-Type": "application/json" },
-})
-  .then((res) => res.json())
-  .then((data) => {
-    notes.value = data;
-  });
+
+  }).then((res) => res.json()).then((data) => (notes.value = data));
 
 const addNoteToList = (note) => {
-  // notes.value = [...notes.value.note];
-  notes.value.push(note);
+  notes.value = [...notes.value, note];
 };
+
 </script>
 
 <template>
-  <NoteFormOld @note-created="addNoteToList" />
+  <NoteForm @noteCreated="addNoteToList" />
   <div class="listOfNotes">
     <h2>All Notes</h2>
-    <ul v-for="note in notes" :key="note.id">
-      {{
-        note.title
-      }}
-      <br />
-      {{
-        note.body
-      }}
-    </ul>
+      <div
+      v-for="note in notes" :key="note.id">
+        {{ note.title }}
+        <br />
+        {{ note.body }}
+      </div>
   </div>
 </template>

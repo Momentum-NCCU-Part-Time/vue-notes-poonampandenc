@@ -2,7 +2,13 @@
 import { ref } from "vue";
 const newNoteTitle = ref("");
 const newNoteBody = ref("");
-const emit = defineEmits(["note-created"]);
+const emit = defineEmits(["noteCreated"]);
+
+const resetNote = () => {
+  newNoteTitle.value = "";
+  newNoteBody.value = "";
+};
+
 
 const createNote = () => {
   if (!newNoteTitle) return;
@@ -11,25 +17,18 @@ const createNote = () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: newNoteTitle.value,
-      body: newNoteBody.value,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      emit("note-created", data);
+      body: newNoteBody.value
+    })
+  }).then((res) => res.json())
+    .then((note) => {
+      emit("noteCreated", note)
+      resetNote()
     });
-  resetNote();
 };
 
-const resetNote = () => {
-  newNoteTitle.value = "";
-  newNoteBody.value = "";
-};
 </script>
 
 <template>
-  <div>
     <form id="NoteForm" @submit.prevent="createNote">
       <h2>New Note</h2>
       <div class="title">
@@ -51,5 +50,4 @@ const resetNote = () => {
       </div>
       <button type="submit" :disabled="!newNoteTitle">Add Note</button>
     </form>
-  </div>
 </template>
