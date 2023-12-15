@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import NoteFormOld from "./NoteFormOld.vue";
+import NoteForm from "./NoteForm.vue";
 
 const notes = ref([]);
 fetch("http://localhost:3000/notes/", {
@@ -13,13 +13,13 @@ fetch("http://localhost:3000/notes/", {
   });
 
 const addNoteToList = (note) => {
-  // notes.value = [...notes.value.note];
-  notes.value.push(note);
+  notes.value = [...notes.value, note];
+  // notes.value.push(note);
 };
 </script>
 
 <template>
-  <NoteFormOld @note-created="addNoteToList" />
+  <NoteForm @note-created="addNoteToList" />
   <div class="listOfNotes">
     <h2>All Notes</h2>
     <ul v-for="note in notes" :key="note.id">

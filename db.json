@@ -33,39 +33,14 @@
       "id": 18
     },
     {
-      "title": "test",
-      "body": "zoom test",
+      "title": "reloading fixed with emit",
+      "body": "reloading fixed with emit",
       "id": 19
     },
     {
-      "title": "test",
-      "body": "test",
+      "title": "reset moved up",
+      "body": "reset moved up",
       "id": 20
-    },
-    {
-      "title": "test",
-      "body": "test",
-      "id": 21
-    },
-    {
-      "title": "adam",
-      "body": "druver",
-      "id": 22
-    },
-    {
-      "title": "emma",
-      "body": "stone",
-      "id": 23
-    },
-    {
-      "title": "bob",
-      "body": "jones",
-      "id": 24
-    },
-    {
-      "title": "hi",
-      "body": "jeo",
-      "id": 25
     }
   ]
 }

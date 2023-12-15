@@ -2,6 +2,11 @@
 import { ref } from "vue";
 const newNoteTitle = ref("");
 const newNoteBody = ref("");
+
+const resetNote = () => {
+  newNoteTitle.value = "";
+  newNoteBody.value = "";
+};
 const emit = defineEmits(["note-created"]);
 
 const createNote = () => {
@@ -20,11 +25,6 @@ const createNote = () => {
       emit("note-created", data);
     });
   resetNote();
-};
-
-const resetNote = () => {
-  newNoteTitle.value = "";
-  newNoteBody.value = "";
 };
 </script>
 
