@@ -16,7 +16,6 @@ const createNote = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       emit("note-created", data);
     });
   resetNote();
