@@ -12,7 +12,6 @@
       "id": 2
     },
     {
-
       "title": "add note disabled",
       "body": "fjasdkfja",
       "id": 14
@@ -33,21 +32,19 @@
       "id": 5
     },
     {
-
-      "title": "test",
-      "body": "zoom test",
+      "title": "reloading fixed with emit",
+      "body": "reloading fixed with emit",
       "id": 19
     },
     {
-      "title": "test",
-      "body": "test",
+      "title": "reset moved up",
+      "body": "reset moved up",
       "id": 20
     },
     {
-      "title": "test",
-      "body": "test",
+      "title": "merged",
+      "body": "merged",
       "id": 21
-    },
-
+    }
   ]
 }

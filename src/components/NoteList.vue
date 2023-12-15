@@ -1,29 +1,29 @@
 <script setup>
 import { ref } from "vue";
-import NoteFormOld from "./NoteFormOld.vue";
+import NoteForm from "./NoteForm.vue";
 
 const notes = ref([]);
 fetch("http://localhost:3000/notes/", {
   method: "GET",
   headers: { "Content-Type": "application/json" },
-
-  }).then((res) => res.json()).then((data) => (notes.value = data));
+})
+  .then((res) => res.json())
+  .then((data) => (notes.value = data));
 
 const addNoteToList = (note) => {
   notes.value = [...notes.value, note];
+  // notes.value.push(note);
 };
-
 </script>
 
 <template>
-  <NoteForm @noteCreated="addNoteToList" />
+  <NoteForm @note-created="addNoteToList" />
   <div class="listOfNotes">
     <h2>All Notes</h2>
-      <div
-      v-for="note in notes" :key="note.id">
-        {{ note.title }}
-        <br />
-        {{ note.body }}
-      </div>
+    <div v-for="note in notes" :key="note.id">
+      {{ note.title }}
+      <br />
+      {{ note.body }}
+    </div>
   </div>
 </template>
